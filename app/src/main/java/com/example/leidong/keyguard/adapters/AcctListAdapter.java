@@ -19,9 +19,6 @@ import java.util.ArrayList;
 
 public class AcctListAdapter extends RecyclerView.Adapter<AcctListViewHolder>{
 
-    private static final int VIEW_TYPE_EMPTY  = 0x23;
-    private static final int VIEW_TYPE_NORMAL = 0x24;
-
     private Context context;
     private RecyclerView recyclerView;
     private ArrayList<Account> data;

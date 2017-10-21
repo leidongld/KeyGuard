@@ -18,12 +18,10 @@ import de.greenrobot.event.EventBus;
  */
 
 public class DBExportRunnable implements Runnable{
-    private Context context;
     private String dbSrcPath;
     private String dbDstPath;
 
     public DBExportRunnable(Context context) {
-        this.context = context;
         dbSrcPath = context.getDatabasePath(AppConstants.DB_NAME).getAbsolutePath();
         dbDstPath = Environment.getExternalStorageDirectory() + "/data/data/keyguard/";
         File dstPath = new File(dbDstPath);

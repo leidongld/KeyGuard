@@ -31,7 +31,7 @@ import de.greenrobot.event.EventBus;
  */
 
 public class SetMasterPasswordActivity extends AppCompatActivity {
-    public enum ShowMode {
+    enum ShowMode {
         ShowModeAdd,
         ShowModeChange,
     }
@@ -74,7 +74,7 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
                     new Thread(new PBKDFRunnable(passwd.getText().toString())).start();
                 } else {
                     dialog = ResUtil.getInstance(null).showProgressbar(SetMasterPasswordActivity.this);
-                    new Thread(new ChangePasswordRunnable(SetMasterPasswordActivity.this, oldPassword, passwd.getText().toString())).run();
+                    new Thread(new ChangePasswordRunnable(oldPassword, passwd.getText().toString())).run();
                 }
 
             }
@@ -149,7 +149,6 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
             return;
         if (resultCode != RESULT_OK) {
             finish();
-            return;
         }
     }
 
@@ -157,8 +156,6 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
         passwd = (AppCompatEditText) findViewById(R.id.password);
         confirm = (AppCompatEditText) findViewById(R.id.confirm);
         confirmImgView = (AppCompatImageView) findViewById(R.id.confirm_img);
-//        checkBox = (AnimateCheckBox) findViewById(R.id.quick_checkbox);
-//        checkBoxHint = (AppCompatTextView) findViewById(R.id.checkbox_hint);
         helpText = (TextView) findViewById(R.id.help_text);
     }
 

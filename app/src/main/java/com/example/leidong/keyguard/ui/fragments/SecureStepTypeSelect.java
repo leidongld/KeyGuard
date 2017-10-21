@@ -119,7 +119,6 @@ public class SecureStepTypeSelect extends FragmentSlide.FragmentSlideFragment{
                 ret.add(e.getText().toString().replaceAll("\\s+",""));
             }
         }
-
         return ret;
     }
 }

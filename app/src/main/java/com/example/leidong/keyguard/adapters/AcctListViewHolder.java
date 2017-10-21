@@ -30,7 +30,7 @@ import java.util.Calendar;
  * Created by leidong on 2017/10/13
  */
 
-public class AcctListViewHolder extends RecyclerView.ViewHolder{
+class AcctListViewHolder extends RecyclerView.ViewHolder{
     private View itemView;
 
     private float dp;
@@ -40,13 +40,13 @@ public class AcctListViewHolder extends RecyclerView.ViewHolder{
     private Account account;
     private String iconStr;
 
-    public AcctListViewHolder(View itemView) {
+    AcctListViewHolder(View itemView) {
         super(itemView);
         this.itemView = itemView;
         dp = itemView.getContext().getResources().getDisplayMetrics().density;
     }
 
-    public void configureWithAccount(final Account account) {
+    void configureWithAccount(final Account account) {
         this.account = account;
         ((TextView) itemView.findViewById(R.id.list_name)).setText(account.getName());
         ((TextView) itemView.findViewById(R.id.list_account_name)).setText(account.getMasked_account());
@@ -134,8 +134,6 @@ public class AcctListViewHolder extends RecyclerView.ViewHolder{
                         account.getAccount_salt(), account.getSalt(), account.getAdditional_salt());
             }
         });
-//        ((TextView) itemView.findViewById(R.id.list_account_category)).setText(account.getCategory());
-//        ((CardView) this.itemView.findViewById(R.id.list_item_card_view)).setCardBackgroundColor(Color.parseColor("#CDDC39"));
     }
 
     private void updateAccess() {

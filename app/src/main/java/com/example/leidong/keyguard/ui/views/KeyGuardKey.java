@@ -10,8 +10,8 @@ import android.inputmethodservice.Keyboard;
  * Created by leidong on 2017/10/15
  */
 
-public class PuffKey extends Keyboard.Key{
-    public PuffKey(Resources res, Keyboard.Row parent, int x, int y, XmlResourceParser parser) {
+class KeyGuardKey extends Keyboard.Key{
+    KeyGuardKey(Resources res, Keyboard.Row parent, int x, int y, XmlResourceParser parser) {
         super(res, parent, x, y, parser);
         if(this.label == null && this.icon == null) {
             this.icon = new ColorDrawable(Color.argb(0xff, 0, 0, 0));

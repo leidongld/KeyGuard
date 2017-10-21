@@ -3,7 +3,7 @@ package com.example.leidong.keyguard.ui.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import com.example.leidong.keyguard.R;
 import com.example.leidong.keyguard.ui.fragments.SecureSlide;
 import com.example.leidong.keyguard.ui.fragments.SecureStepDone;
@@ -53,7 +53,6 @@ public class PasswordGenActivity extends IntroActivity implements SlideListener{
                 finish();
             }
         });
-//        getSupportActionBar().setTitle("Secure Password Generator");
 
         wireRefs();
 
@@ -126,7 +125,6 @@ public class PasswordGenActivity extends IntroActivity implements SlideListener{
             } else {
                 password = PasswordGenerator.getPassword(length, length);
             }
-            return;
         } else {
             for (String s : words) {
                 password += StringUtil.getMaskedWord(s);

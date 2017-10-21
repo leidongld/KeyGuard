@@ -1,6 +1,5 @@
 package com.example.leidong.keyguard.runnable;
 
-import android.content.Context;
 import android.util.Base64;
 
 import com.example.leidong.keyguard.db.Account;
@@ -20,12 +19,9 @@ import de.greenrobot.event.EventBus;
  */
 
 public class ChangePasswordRunnable implements Runnable{
-    private Context context;
     private ArrayList<Account> accounts;
-    //    private Stack<Account> accounts;
     private String oldPassword, newPassword;
-    public ChangePasswordRunnable(Context context, String oldPassword, String newPassword) {
-        this.context = context;
+    public ChangePasswordRunnable(String oldPassword, String newPassword) {
         this.oldPassword = oldPassword;
         this.newPassword = newPassword;
 
@@ -36,7 +32,7 @@ public class ChangePasswordRunnable implements Runnable{
     @Override
     public void run() {
         CryptoEvent result = null;
-        new PBKDFRunnable(newPassword.toString()).run();
+        new PBKDFRunnable(newPassword).run();
         try {
             for (Account account : accounts) {
                 if (account.getType() == AppConstants.TYPE_QUICK || account.getType() == AppConstants.TYPE_MASTER)
@@ -70,7 +66,7 @@ public class ChangePasswordRunnable implements Runnable{
         return encrypted;
     }
 
-    public byte[] decrypt(byte[] rawText) throws Exception {
+    private byte[] decrypt(byte[] rawText) throws Exception {
         SecretKeySpec skeySpec = new SecretKeySpec(oldPassword.getBytes("UTF-8"), "Blowfish");
         Cipher cipher = Cipher.getInstance("Blowfish");
         cipher.init(Cipher.DECRYPT_MODE, skeySpec);

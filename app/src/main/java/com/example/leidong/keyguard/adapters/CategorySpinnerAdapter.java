@@ -70,11 +70,6 @@ public class CategorySpinnerAdapter extends ArrayAdapter{
                 .onlyScaleDown()
                 .config(Bitmap.Config.RGB_565)
                 .into(viewHolder.imageView);
-//        try {
-//            viewHolder.imageView.setImageBitmap(ResUtil.getInstance(null).getBmp(categories.get(position).getIcon()));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         return convertView;
     }
 
@@ -100,7 +95,7 @@ public class CategorySpinnerAdapter extends ArrayAdapter{
         return categories.indexOf(item);
     }
     class CategoryViewHolder {
-        public TextView textView;
-        public ImageView imageView;
+        TextView textView;
+        ImageView imageView;
     }
 }

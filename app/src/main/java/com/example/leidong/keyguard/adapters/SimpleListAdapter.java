@@ -69,7 +69,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<SimpleListViewHolder
         this.notifyDataSetChanged();
     }
 
-    public void loadAccountInCategory(Long category) {
+    private void loadAccountInCategory(Long category) {
         type = SimpleListViewHolder.SimpleListViewType.SimpleListViewTypeCategory;
         data = AccountHelper.getInstance(null).getAccountsByCategory(category);
         this.notifyDataSetChanged();
@@ -91,7 +91,6 @@ public class SimpleListAdapter extends RecyclerView.Adapter<SimpleListViewHolder
                         context.startService(intent);
 
                         // TODO: 16/5/15 Publish an event to tell activity I'm done here.
-                        //               Dismiss that activity.
                         EventBus.getDefault().post(new DialogEvent());
                     }
                 }).runDecrypt(account.getAccount(), account.getHash(), account.getAdditional(),

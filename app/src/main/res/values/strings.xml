@@ -34,8 +34,8 @@
     <string name="title_activity_set_quick_password">设置快速登录密码</string>
     <!--<string name="section_format">Hello World from section: %1$d</string>-->
     <string name="title_intro_one">您的所有条目均处于安全保护区</string>
-    <string name="title_intro_two"><![CDATA[Quick & Safe Access]]></string>
-    <string name="title_intro_three"><![CDATA[Open source & free forever]]></string>
+    <string name="title_intro_two"><![CDATA[快速安全的登录]]></string>
+    <string name="title_intro_three"><![CDATA[。。。。。。。。。]]></string>
     <string name="select_image">选择图片</string>
     <string name="type">类型</string>
     <string name="password_is_empty">密码为空</string>
@@ -43,7 +43,7 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="master_password_invalid">主密码无效</string>
-    <string name="choose_category_and_account"><![CDATA[Choose Account]]></string>
+    <string name="choose_category_and_account"><![CDATA[选择账户]]></string>
     <string name="categories">目录</string>
     <string name="password_dont_match_em">密码不匹配</string>
     <string name="password_is_too_short_em">您的密码太短了！</string>

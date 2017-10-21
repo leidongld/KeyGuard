@@ -15,7 +15,7 @@ import java.util.List;
  * Created by leidong on 2017/10/15
  */
 
-public class PuffKeyboardView extends KeyboardView {
+public class KeyGuardKeyboardView extends KeyboardView {
     public static final int TYPE_ABC = 0;
     public static final int TYPE_ABC_SHIFT = 1;
     public static final int TYPE_SYMBOL = 2;
@@ -24,7 +24,7 @@ public class PuffKeyboardView extends KeyboardView {
     private int currentType = 911;
 
 
-    public PuffKeyboardView(Context context, AttributeSet attrs) {
+    public KeyGuardKeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
     }

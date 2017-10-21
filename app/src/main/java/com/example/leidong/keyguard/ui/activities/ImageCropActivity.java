@@ -96,11 +96,7 @@ public class ImageCropActivity extends AppCompatActivity{
                     public void run() {
                         try {
                             future.get(60, TimeUnit.SECONDS);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        } catch (ExecutionException e) {
-                            e.printStackTrace();
-                        } catch (TimeoutException e) {
+                        } catch (InterruptedException | ExecutionException | TimeoutException e) {
                             e.printStackTrace();
                         } finally {
                             Intent data = new Intent();

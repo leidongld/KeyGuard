@@ -82,7 +82,7 @@ public class CryptoRunnable implements Runnable{
         return encrypted;
     }
 
-    public byte[] decrypt() throws Exception {
+    private byte[] decrypt() throws Exception {
         SecretKeySpec skeySpec = new SecretKeySpec(password.getBytes("UTF-8"), "Blowfish");
         Cipher cipher = Cipher.getInstance("Blowfish");
         cipher.init(Cipher.DECRYPT_MODE, skeySpec);

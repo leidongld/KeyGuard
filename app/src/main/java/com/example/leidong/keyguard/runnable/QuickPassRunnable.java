@@ -108,7 +108,7 @@ public class QuickPassRunnable implements Runnable{
 
     }
 
-    public String decrypt() throws Exception {
+    private String decrypt() throws Exception {
 
         String[] parts = passwordHash.split(":");
         int iterations = Integer.parseInt(parts[0]);

@@ -6,28 +6,25 @@ package com.example.leidong.keyguard.db;
 
 public class Account {
     private Long id;
-    /** Not-null value. */
+
     private String name;
     private long type;
     private String account;
     private String masked_account;
     private Boolean hide_name;
     private String account_salt;
-    /** Not-null value. */
+
     private String salt;
-    /** Not-null value. */
+
     private String hash;
     private String additional;
     private String additional_salt;
     private long category;
-    /** Not-null value. */
+
     private String tag;
     private String website;
     private Long last_access;
     private String icon;
-
-    // KEEP FIELDS - put your custom fields here
-    // KEEP FIELDS END
 
     public Account() {
     }
@@ -63,12 +60,10 @@ public class Account {
         this.id = id;
     }
 
-    /** Not-null value. */
     public String getName() {
         return name;
     }
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setName(String name) {
         this.name = name;
     }
@@ -113,22 +108,18 @@ public class Account {
         this.account_salt = account_salt;
     }
 
-    /** Not-null value. */
     public String getSalt() {
         return salt;
     }
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setSalt(String salt) {
         this.salt = salt;
     }
 
-    /** Not-null value. */
     public String getHash() {
         return hash;
     }
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setHash(String hash) {
         this.hash = hash;
     }
@@ -157,12 +148,10 @@ public class Account {
         this.category = category;
     }
 
-    /** Not-null value. */
     public String getTag() {
         return tag;
     }
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setTag(String tag) {
         this.tag = tag;
     }

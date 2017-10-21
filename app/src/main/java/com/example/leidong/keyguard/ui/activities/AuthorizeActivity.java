@@ -100,8 +100,6 @@ public class AuthorizeActivity extends AppCompatActivity{
             dialog = ResUtil.getInstance(this).showProgressbar(this);
             //获取已存在的主账户信息
             master = AccountHelper.getInstance(this).getMasterAccount();
-//            new Thread(new CryptoRunnable(master.getHash(), password, AppConstants.TYPE_DECRYPT, "master"))
-//                    .start();
             new Thread(new PBKDFRunnable(password, master.getHash())).start();
         }
     }

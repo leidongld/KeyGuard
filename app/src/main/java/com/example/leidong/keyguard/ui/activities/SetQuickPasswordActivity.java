@@ -70,8 +70,6 @@ public class SetQuickPasswordActivity extends AppCompatActivity{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!validateInput())
-                    return;
                 startActivity(new Intent(SetQuickPasswordActivity.this, AuthorizeActivity.class));
             }
         });
@@ -107,7 +105,7 @@ public class SetQuickPasswordActivity extends AppCompatActivity{
         if (!(event instanceof CryptoEvent)) {
             return;
         }
-        if ((event == null || ((CryptoEvent) event).getField() == null) && (type != ShowTypeSet)) {
+        if (((CryptoEvent) event).getField() == null && type != ShowTypeSet) {
             patternView.setPattern(PatternView.DisplayMode.Wrong, patternView.getPattern());
             return;
         }

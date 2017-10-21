@@ -26,7 +26,6 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.UUID;
@@ -152,9 +151,6 @@ public class AddTypeDialogActivity extends AppCompatActivity{
                     }
                     outputStream.close();
                     inputStream.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    imgPath = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                     imgPath = null;

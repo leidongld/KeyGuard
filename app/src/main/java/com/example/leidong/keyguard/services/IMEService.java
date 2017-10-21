@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.example.leidong.keyguard.R;
 import com.example.leidong.keyguard.ui.activities.DialogAcctList;
-import com.example.leidong.keyguard.ui.views.PuffKeyboard;
-import com.example.leidong.keyguard.ui.views.PuffKeyboardView;
+import com.example.leidong.keyguard.ui.views.KeyGuardKeyboard;
+import com.example.leidong.keyguard.ui.views.KeyGuardKeyboardView;
 import com.example.leidong.keyguard.utils.VibrateUtil;
 
 /**
@@ -22,14 +22,12 @@ import com.example.leidong.keyguard.utils.VibrateUtil;
  */
 
 public class IMEService extends InputMethodService implements KeyboardView.OnKeyboardActionListener{
-    private PuffKeyboardView kv;
-    private PuffKeyboard normalKeyboard, symbolKeyboard, symsftKeyboard, currentKeyboard, shiftKeyboard;
+    private KeyGuardKeyboardView kv;
+    private KeyGuardKeyboard normalKeyboard, symbolKeyboard, symsftKeyboard, currentKeyboard, shiftKeyboard;
 
     private String account, password, additional;
 
     private boolean caps = false;
-
-    private IBinder mToken = null;
 
     public IMEService() {
         account = "";
@@ -39,7 +37,7 @@ public class IMEService extends InputMethodService implements KeyboardView.OnKey
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getAction() == "INIT") {
+        if (intent.getAction().equals("INIT")) {
             account = intent.getStringExtra("account");
             password = intent.getStringExtra("password");
             additional = intent.getStringExtra("additional");
@@ -48,16 +46,15 @@ public class IMEService extends InputMethodService implements KeyboardView.OnKey
     }
     @Override
     public void onInitializeInterface() {
-        normalKeyboard = new PuffKeyboard(this, R.xml.keyboard_layout_qwerty);
-        shiftKeyboard = new PuffKeyboard(this, R.xml.keyboard_layout_qwerty_shift);
-        symbolKeyboard = new PuffKeyboard(this, R.xml.keyboard_layout_symbol);
-        symsftKeyboard = new PuffKeyboard(this, R.xml.keyboard_layout_symsft);
+        normalKeyboard = new KeyGuardKeyboard(this, R.xml.keyboard_layout_qwerty);
+        shiftKeyboard = new KeyGuardKeyboard(this, R.xml.keyboard_layout_qwerty_shift);
+        symbolKeyboard = new KeyGuardKeyboard(this, R.xml.keyboard_layout_symbol);
+        symsftKeyboard = new KeyGuardKeyboard(this, R.xml.keyboard_layout_symsft);
         currentKeyboard = normalKeyboard;
     }
     @Override
     public View onCreateInputView() {
-        kv = (PuffKeyboardView) View.inflate(this, R.layout.layout_ime, null);
-//        kv = (PuffKeyboardView)getLayoutInflater().inflate(R.layout.layout_ime, null);
+        kv = (KeyGuardKeyboardView) View.inflate(this, R.layout.layout_ime, null);
         kv.setKeyboard(currentKeyboard);
         kv.setOnKeyboardActionListener(this);
         return kv;
@@ -69,7 +66,6 @@ public class IMEService extends InputMethodService implements KeyboardView.OnKey
             @Override
             public void attachToken(IBinder token) {
                 super.attachToken(token);
-                mToken = token;
             }
         };
     }
@@ -110,7 +106,7 @@ public class IMEService extends InputMethodService implements KeyboardView.OnKey
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection ic = getCurrentInputConnection();
         switch(primaryCode){
-            case PuffKeyboardView.KEYCODE_EDIT :
+            case KeyGuardKeyboardView.KEYCODE_EDIT :
                 Intent intent = new Intent(this, DialogAcctList.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 getApplicationContext().startActivity(intent);

@@ -34,7 +34,6 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ import java.util.UUID;
  */
 
 public class AddAccountActivity extends AppCompatActivity{
-    public enum AddAccountShowMode {
+    enum AddAccountShowMode {
         ShowModeAdd,
         ShowModeEdit,
     }
@@ -68,7 +67,6 @@ public class AddAccountActivity extends AppCompatActivity{
         setContentView(R.layout.activity_add_account);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        EventBus.getDefault().register(this);
 
         showMode = (AddAccountShowMode) getIntent().getSerializableExtra("showMode");
 
@@ -202,16 +200,6 @@ public class AddAccountActivity extends AppCompatActivity{
                 .into(imageView);
     }
 
-//    public void onEventMainThread(CryptoEvent event){
-//        switch (event.getType()) {
-//            case AppConstants.TYPE_FINISHED:
-//                // TODO: 16/4/4 Dismiss self and pop up snack bar.
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-
     private void doCreateAccount(View sender) {
         String err = validateFields();
         if (err != null) {
@@ -302,9 +290,6 @@ public class AddAccountActivity extends AppCompatActivity{
                     }
                     outputStream.close();
                     inputStream.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    iconPath = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                     iconPath = null;

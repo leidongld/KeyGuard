@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         startActivity(intent);
                         //前一个Activity结束和后一个Activity弹起时候的动画管理
                         overridePendingTransition(0, 0);
-//
                     }
 
                     @Override
@@ -217,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void loadAccountByCategory(Category category) {
         AcctListFragment toShow = fragments.get(category.getId());
         if (toShow == null) {
-            toShow = acctListFragment.newInstance(category.getId());
+            toShow = AcctListFragment.newInstance(category.getId());
             fragments.put(category.getId(), toShow);
             getSupportFragmentManager().beginTransaction()
                     .hide(currentFragment)

@@ -71,7 +71,6 @@ public class SecureStepDone extends SecureSlide.Fragment{
             } else {
                 password = PasswordGenerator.getPassword(length, length);
             }
-            return;
         } else {
             for (String s : words) {
                 password += StringUtil.getMaskedWord(s);

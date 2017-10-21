@@ -104,7 +104,7 @@ public class TypeSpinnerAdapter extends ArrayAdapter implements View.OnClickList
     }
 
     class TypeViewHolder {
-        public ImageView imageView;
-        public TextView textView;
+        ImageView imageView;
+        TextView textView;
     }
 }

@@ -68,7 +68,7 @@ public class AcctListFragment extends Fragment{
         adapter = new AcctListAdapter(getContext(), recyclerView);
         recyclerView.setAdapter(adapter);
         adapter.loadAccountsInCategory(category);
-        recyclerView.addOnScrollListener(new OnCardsScrollListener(recyclerView));
+        recyclerView.addOnScrollListener(new OnCardsScrollListener());
 
         placeHolder = (CardView) ret.findViewById(R.id.placeholder);
         ViewCompat.setElevation(placeHolder, 10.0f);
@@ -85,13 +85,6 @@ public class AcctListFragment extends Fragment{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-
     }
 
     @Override
@@ -142,7 +135,7 @@ public class AcctListFragment extends Fragment{
      * 此接口必须由包含此片段的Activity实现，
      * 以允许将此片段中的交互传达到该Activity中包含的Activity和潜在的其他片段。
      */
-    public interface OnFragmentInteractionListener {
+    interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

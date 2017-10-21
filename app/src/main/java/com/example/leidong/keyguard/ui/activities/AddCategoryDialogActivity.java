@@ -48,7 +48,6 @@ public class AddCategoryDialogActivity extends AppCompatActivity{
         buttonOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                setResult();
                 if (StringUtil.isNullOrEmpty(etName.getText().toString())) {
                     return;
                 }

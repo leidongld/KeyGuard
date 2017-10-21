@@ -18,7 +18,6 @@ public class PuffIntroActivity extends IntroActivity {
 
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_intro_one)
-//                .description(R.string.description_1)
                 .image(R.drawable.onboarding_slide_one)
                 .background(R.color.colorPrimary)
                 .backgroundDark(R.color.colorPrimaryDark)

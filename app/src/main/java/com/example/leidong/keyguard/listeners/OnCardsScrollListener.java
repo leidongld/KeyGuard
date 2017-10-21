@@ -7,15 +7,12 @@ import android.support.v7.widget.RecyclerView;
  */
 
 public class OnCardsScrollListener extends RecyclerView.OnScrollListener{
-    private RecyclerView recyclerView;
 
-    public OnCardsScrollListener(RecyclerView recyclerView){
-        this.recyclerView = recyclerView;
+    public OnCardsScrollListener(){
     }
 
     @Override
     public void onScrollStateChanged(RecyclerView recyclerView, int newState){
-        int first;
         switch (newState){
             case RecyclerView.SCROLL_STATE_IDLE:
                 break;

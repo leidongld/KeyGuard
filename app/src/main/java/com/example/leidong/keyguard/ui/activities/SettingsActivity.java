@@ -147,9 +147,6 @@ public class SettingsActivity extends MaterialSettings{
 
 
     public void onEventMainThread(Object event) {
-//        if (!(event instanceof DBExportEvent)) {
-//            return;
-//        }
         if (event instanceof CryptoEvent && didClickedChangeMaster) {
             didClickedChangeMaster = false;
             if (((CryptoEvent) event).getType() == AppConstants.TYPE_MASTERPWD) {

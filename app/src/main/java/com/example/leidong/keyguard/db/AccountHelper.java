@@ -128,6 +128,5 @@ public class AccountHelper {
                 .orderDesc(AccountDao.Properties.Last_access)
                 .limit(limit)
                 .list();
-
     }
 }
