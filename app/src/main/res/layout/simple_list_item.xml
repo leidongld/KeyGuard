@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1.0"
         android:gravity="left|center_vertical"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:paddingLeft="16dp"
         android:id="@+id/account_name"
         />

@@ -14,7 +14,6 @@
         "Bcrypt是一种标准的对称加密算法 \n"
     </string>g
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_add_account">添加账户</string>
     <string name="title_activity_authorize">使用主密码进行认证登录</string>
 
@@ -26,9 +25,6 @@
     <string name="error_invalid_email">邮件地址无效</string>
     <string name="error_invalid_password">您的密码太短了</string>
     <string name="error_incorrect_password">密码错误</string>
-    <!--<string name="error_field_required">This field is required</string>-->
-    <!--<string name="permission_rationale">"Contacts permissions are needed for providing email-->
-    <!--completions."-->
     <!--</string>-->
     <string name="title_activity_set_master_password">设置主密码</string>
     <string name="title_activity_set_quick_password">设置快速登录密码</string>
