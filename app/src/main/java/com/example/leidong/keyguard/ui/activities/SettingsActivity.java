@@ -7,7 +7,6 @@ import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialog;
 import android.widget.Toast;
-
 import com.example.leidong.keyguard.R;
 import com.example.leidong.keyguard.db.AccountHelper;
 import com.example.leidong.keyguard.events.CryptoEvent;
@@ -83,6 +82,7 @@ public class SettingsActivity extends MaterialSettings{
         }));
 
         addItem(new HeaderItem(this).setTitle(getString(R.string.puff_secure_keyboard)));
+        //设置自定义的输入法
         addItem(new TextItem(this, "ime").setTitle(getString(R.string.enable_puff_secure_keyboard)). setOnclick(new TextItem.OnClickListener() {
             @Override
             public void onClick(TextItem textItem) {
@@ -119,15 +119,6 @@ public class SettingsActivity extends MaterialSettings{
 
                     }
                 }));
-
-        addItem(new HeaderItem(this).setTitle(getString(R.string.about)));
-        addItem(new TextItem(this, "about").setTitle(getResources().getString(R.string.about_puff_title)).setOnclick(new TextItem.OnClickListener() {
-            @Override
-            public void onClick(TextItem textItem) {
-                startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
-            }
-        }));
-
 
     }
 

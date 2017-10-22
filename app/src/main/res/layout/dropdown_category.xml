@@ -3,11 +3,13 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="50dp">
+
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.0"/>
+        android:layout_weight="1.0" />
+
     <TextView
         android:id="@+id/text_view"
         android:layout_width="0dp"

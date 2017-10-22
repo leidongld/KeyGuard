@@ -70,8 +70,9 @@ public class AddAccountActivity extends AppCompatActivity{
 
         showMode = (AddAccountShowMode) getIntent().getSerializableExtra("showMode");
 
-        wireViews();
+        initViews();
 
+        //设置最上方主题图片
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +93,7 @@ public class AddAccountActivity extends AppCompatActivity{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //创建或更新Account
                 doCreateAccount(view);
             }
         });
@@ -101,6 +103,7 @@ public class AddAccountActivity extends AppCompatActivity{
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //创建或更新Account
                 doCreateAccount(v);
             }
         });
@@ -239,6 +242,7 @@ public class AddAccountActivity extends AppCompatActivity{
                 if (showMode == AddAccountShowMode.ShowModeEdit) {
                     account.setId(acctId);
                 }
+                //保存Account
                 AccountHelper.getInstance(AddAccountActivity.this).saveAccount(account);
                 Intent data = new Intent();
                 ArrayList credentials = new ArrayList();
@@ -315,7 +319,7 @@ public class AddAccountActivity extends AppCompatActivity{
         }
     }
 
-    private void wireViews() {
+    private void initViews() {
         name = (EditText) findViewById(R.id.id_name);
         account = (EditText) findViewById(R.id.account);
         password = (EditText) findViewById(R.id.password);

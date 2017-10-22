@@ -32,7 +32,7 @@ public class TypeHelper {
         acctTypeDao = daoSession.getAcctTypeDao();
     }
 
-    public DaoMaster getDaoMaster(){
+    private DaoMaster getDaoMaster(){
         if (daoMaster == null) {
             DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, AppConstants.DB_NAME, null);
             daoMaster = new DaoMaster(helper.getWritableDatabase());
@@ -40,7 +40,7 @@ public class TypeHelper {
         return daoMaster;
     }
 
-    public DaoSession getDaoSession(){
+    private DaoSession getDaoSession(){
         if (daoSession == null) {
             if (daoMaster == null) {
                 daoMaster = getDaoMaster();
@@ -78,6 +78,4 @@ public class TypeHelper {
     public void delete(AcctType acctType) {
         acctTypeDao.delete(acctType);
     }
-
-
 }

@@ -28,7 +28,7 @@ public class PasswordGenActivity extends IntroActivity implements SlideListener{
         Secure
     }
 
-    private SecureSlide introSlide, typeSlide, wordsSlide, doneSlide;
+    private SecureSlide introSlide, typeSlide, doneSlide;
     SecureStepTypeSelect typeSlideFragment;
     SecureStepIntro introStepFragment;
     SecureStepDone doneSlideFragment;
@@ -54,7 +54,7 @@ public class PasswordGenActivity extends IntroActivity implements SlideListener{
             }
         });
 
-        wireRefs();
+        initViews();
 
         setNavigationPolicy(new NavigationPolicy() {
             @Override
@@ -117,9 +117,11 @@ public class PasswordGenActivity extends IntroActivity implements SlideListener{
         }
     }
 
+    /**
+     * 随机产生密码
+     */
     private void generatePassword() {
         if (words == null || words.size() == 0) {
-            //No words provided.
             if (type == PasswordType.Number) {
                 password = PasswordGenerator.getNumPassword(length, length);
             } else {
@@ -142,7 +144,7 @@ public class PasswordGenActivity extends IntroActivity implements SlideListener{
         finish();
     }
 
-    private void wireRefs() {
+    private void initViews() {
 
         introStepFragment = SecureStepIntro.newInstance(R.layout.fragment_step_intro);
         introSlide = new SecureSlide.Builder()

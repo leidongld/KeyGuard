@@ -31,7 +31,7 @@
     <!--<string name="section_format">Hello World from section: %1$d</string>-->
     <string name="title_intro_one">您的所有条目均处于安全保护区</string>
     <string name="title_intro_two"><![CDATA[快速安全的登录]]></string>
-    <string name="title_intro_three"><![CDATA[。。。。。。。。。]]></string>
+    <string name="title_intro_three"><![CDATA[KeyGuard]]></string>
     <string name="select_image">选择图片</string>
     <string name="type">类型</string>
     <string name="password_is_empty">密码为空</string>

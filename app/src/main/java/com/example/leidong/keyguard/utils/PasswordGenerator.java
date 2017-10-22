@@ -55,7 +55,7 @@ public class PasswordGenerator {
     }
 
 
-    public char[] generatePassword() {
+    private char[] generatePassword() {
         SecureRandom rand = new SecureRandom();
 
         // Set pw length to minLength <= pwLength <= maxLength

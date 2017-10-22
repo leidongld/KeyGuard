@@ -9,10 +9,10 @@
     android:gravity="center"
     android:animateLayoutChanges="true"
     android:padding="16dp"
-    >
+    android:background="@color/white">
     <android.support.v7.widget.AppCompatImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:src="@drawable/ic_gen_category"/>
     <LinearLayout
         android:orientation="vertical"
@@ -21,25 +21,28 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="28sp"
             android:textColor="#FFF"
             android:text="@string/which_kind_of_password_qm"/>
         <android.support.v7.widget.AppCompatCheckBox
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/checkbox_numbers"
-            android:text="@string/numbers_only"/>
+            android:text="@string/numbers_only"
+            android:textSize="20sp"/>
         <android.support.v7.widget.AppCompatCheckBox
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/checkbox_secure"
-            android:text="@string/secure_password"/>
+            android:text="@string/secure_password"
+            android:textSize="20sp"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/checkbox_easy"
-            android:text="@string/secure_and_easy"/>
+            android:text="@string/secure_and_easy"
+            android:textSize="20sp"/>
     </LinearLayout>
 
     <ScrollView

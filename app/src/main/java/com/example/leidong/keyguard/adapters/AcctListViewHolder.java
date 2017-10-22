@@ -72,12 +72,16 @@ class AcctListViewHolder extends RecyclerView.ViewHolder{
         }
 
 
+        /**
+         * 点击查看按钮
+         */
         this.itemView.findViewById(R.id.view_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new CryptoUtil(itemView.getContext(), new CryptoUtil.OnDecryptedListener() {
                     @Override
                     public void onDecrypted(String account, String passwd, String addt) {
+                        //准备跳转到Account的详情界面
                         Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
                         ArrayList<String> list = new ArrayList();
                         list.add(account);
@@ -85,6 +89,7 @@ class AcctListViewHolder extends RecyclerView.ViewHolder{
                         list.add(addt);
                         intent.putStringArrayListExtra("credentials", list);
                         intent.putExtra("account", AcctListViewHolder.this.account.getId());
+                        //跳转到Account的详情界面
                         itemView.getContext().startActivity(intent);
                         updateAccess();
                     }

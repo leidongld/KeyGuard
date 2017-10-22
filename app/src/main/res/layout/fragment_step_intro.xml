@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:layout_marginBottom="30dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/white">
     <android.support.v7.widget.AppCompatImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:padding="20dp"
-        android:src="@drawable/ic_gen_password"
-        />
+        android:src="@drawable/ic_gen_password"/>
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,11 +20,12 @@
         android:text="@string/step_intro_hint"/>
 
     <android.support.v7.widget.AppCompatEditText
-        android:layout_width="100dp"
+        android:layout_width="290dp"
         android:layout_height="60dp"
         android:id="@+id/password_length"
         android:inputType="number"
-        android:text="8"
+        android:hint="请在此输入密码长度"
+        android:textSize="30sp"
         android:gravity="center"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

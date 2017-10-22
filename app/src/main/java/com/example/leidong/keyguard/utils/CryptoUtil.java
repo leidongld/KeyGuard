@@ -112,7 +112,7 @@ public class CryptoUtil {
         void onDecrypted(String account, String passwd, String addt);
     }
 
-    public void askForMasterPassword() {
+    private void askForMasterPassword() {
         if (!AccountHelper.getInstance(this.context).hasMasterPassword()) {
             return;
         }

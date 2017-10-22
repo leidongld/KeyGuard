@@ -58,11 +58,14 @@ public class SetQuickPasswordActivity extends AppCompatActivity{
             }
         });
 
+        //手势锁认证
         if (type == ShowTypeVerify) {
             masterPassword = getIntent().getStringExtra("masterPassword");
             fab.setVisibility(View.INVISIBLE);
             hintTextView.setText(hintStrVerify);
-        } else {
+        }
+        //注册手势锁
+        else {
             fab.setVisibility(View.VISIBLE);
             hintTextView.setText(hintStrSet);
         }

@@ -29,6 +29,7 @@ public class TypeSpinnerAdapter extends ArrayAdapter implements View.OnClickList
 
     public TypeSpinnerAdapter(Context context, int resource) {
         super(context, resource);
+        //得到全部的类型
         types = TypeHelper.getInstance(context).getAllTypes();
     }
 
@@ -100,7 +101,6 @@ public class TypeSpinnerAdapter extends ArrayAdapter implements View.OnClickList
     public void onClick(View v) {
         Intent intent = new Intent(getContext(), AddTypeDialogActivity.class);
         getContext().startActivity(intent);
-
     }
 
     class TypeViewHolder {

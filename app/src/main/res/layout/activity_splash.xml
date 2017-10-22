@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:text="KeyGuard"/>
 </LinearLayout>

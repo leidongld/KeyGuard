@@ -9,9 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@drawable/nav_header">
-
-    <!--android:background="@drawable/side_nav_bar"-->
+    android:background="@color/colorPrimaryDark">
 
     <ImageView
         android:id="@+id/header_image_view"
@@ -26,7 +24,7 @@
         android:id="@+id/header_category"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:layout_gravity="bottom"
-        android:gravity="bottom|left"
+        android:gravity="center|left"
         android:textColor="#FFF"
         android:textStyle="bold"
         android:textSize="25dp"

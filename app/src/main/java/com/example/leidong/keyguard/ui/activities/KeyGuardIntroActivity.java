@@ -11,11 +11,12 @@ import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
  * Created by leidong on 2017/10/15
  */
 
-public class PuffIntroActivity extends IntroActivity {
+public class KeyGuardIntroActivity extends IntroActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+        //第一个Slide界面以及相关配置
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_intro_one)
                 .image(R.drawable.onboarding_slide_one)
@@ -23,6 +24,7 @@ public class PuffIntroActivity extends IntroActivity {
                 .backgroundDark(R.color.colorPrimaryDark)
                 .build());
 
+        //第二个Slide界面以及相关配置
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_intro_two)
                 .image(R.drawable.onboarding_slide_two)
@@ -30,6 +32,7 @@ public class PuffIntroActivity extends IntroActivity {
                 .backgroundDark(R.color.colorPrimaryDark)
                 .build());
 
+        //第三个Slide界面以及相关配置
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_intro_three)
                 .image(R.drawable.ic_launcher)
@@ -40,11 +43,15 @@ public class PuffIntroActivity extends IntroActivity {
         setSkipEnabled(false);
         setFullscreen(true);
         setAllowFinish(false);
+
+        //创建新线程
         setRunWhenFinish(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(PuffIntroActivity.this, MainActivity.class));
-                PuffIntroActivity.this.finish();
+                //跳转到MainActivity
+                startActivity(new Intent(KeyGuardIntroActivity.this, MainActivity.class));
+                //关闭当前KeyGuardIntroActivity
+                KeyGuardIntroActivity.this.finish();
             }
         });
     }

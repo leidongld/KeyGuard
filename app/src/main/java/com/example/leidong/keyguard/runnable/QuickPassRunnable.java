@@ -55,6 +55,7 @@ public class QuickPassRunnable implements Runnable{
     @Override
     public void run() {
         switch (type) {
+            //验证手势密码是否正确
             case AppConstants.TYPE_DECRYPT:
                 try {
                     EventBus.getDefault().post(new CryptoEvent(decrypt(), AppConstants.TYPE_MASTERPWD));
@@ -63,6 +64,7 @@ public class QuickPassRunnable implements Runnable{
                     e.printStackTrace();
                 }
                 break;
+            //注册手势密码
             case AppConstants.TYPE_ENCRYPT:
                 try {
                     EventBus.getDefault().post(new CryptoEvent(encrypt(), AppConstants.TYPE_ENCRYPT));
@@ -77,6 +79,11 @@ public class QuickPassRunnable implements Runnable{
         }
     }
 
+    /**
+     * 加密
+     * @return
+     * @throws Exception
+     */
     private String encrypt() throws Exception{
 
         int iterations = 128;
@@ -108,6 +115,11 @@ public class QuickPassRunnable implements Runnable{
 
     }
 
+    /**
+     * 解密
+     * @return
+     * @throws Exception
+     */
     private String decrypt() throws Exception {
 
         String[] parts = passwordHash.split(":");

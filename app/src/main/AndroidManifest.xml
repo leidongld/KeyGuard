@@ -80,7 +80,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity android:name=".ui.activities.PuffIntroActivity"
+        <activity android:name=".ui.activities.KeyGuardIntroActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             />
@@ -119,9 +119,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.leidong.keyguard.ui.activities.MainActivity" />
-        </activity>
-        <activity android:name=".ui.activities.AboutActivity"
-            android:screenOrientation="portrait">
         </activity>
     </application>
 </manifest>

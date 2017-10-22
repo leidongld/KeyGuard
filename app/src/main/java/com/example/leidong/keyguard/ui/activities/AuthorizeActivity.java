@@ -11,6 +11,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.example.leidong.keyguard.R;
 import com.example.leidong.keyguard.db.Account;
 import com.example.leidong.keyguard.db.AccountHelper;
@@ -40,6 +41,7 @@ public class AuthorizeActivity extends AppCompatActivity{
         setContentView(R.layout.activity_authorize);
 
         getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        //getWindow().setType(WindowManager.LayoutParams.TYPE_PHONE);
 
         mPasswordView = (EditText) findViewById(R.id.password);//密码输入框
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -133,8 +135,6 @@ public class AuthorizeActivity extends AppCompatActivity{
             mPasswordView.setError(getResources().getString(R.string.master_password_invalid));
             dialog.dismiss();
         }
-
-
     }
 
     @Override

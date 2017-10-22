@@ -24,15 +24,25 @@ public class SplashActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //得到UserDefault对象
         UserDefault userDefault = UserDefault.getInstance(this);
+
+        //得到是否是第一次登录的标志
         newInstall = userDefault.getBoolean("newInstall");
+
+        //得到无主密码的标志
         noMainPassword = userDefault.getBoolean("noMainPassword");
+
+        //注册订阅者
         EventBus.getDefault().register(this);
+
         //如果是第一次使用
         if (newInstall) {
-            startActivity(new Intent(this, PuffIntroActivity.class));
+            //跳转到介绍界面7
+            startActivity(new Intent(this, KeyGuardIntroActivity.class));
             //设置第一次使用的标志为false
             userDefault.save("newInstall", false);
+            //关闭当前SplashActivity
             finish();
         }
         //如果不是第一次使用

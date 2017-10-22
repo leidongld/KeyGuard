@@ -43,6 +43,7 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
     private ShowMode showMode;
     private String oldPassword;
     private AppCompatDialog dialog;
+    private FloatingActionButton fab;
 
     private static final int REQ_CODE_AUTH_MASTER   = 0x7001;
 
@@ -51,16 +52,20 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_master_password);
 
-        initReference();
-        initListener();
+        //获取组件
+        initViews();
+
+        //初始化动作
+        initActions();
 
         showMode = (ShowMode) getIntent().getSerializableExtra("showMode");
 
+        //如果是更改密码则获取传递的旧密码
         if (showMode == ShowMode.ShowModeChange) {
             oldPassword = getIntent().getStringExtra("oldPassword");
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,26 +75,28 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
                     helpText.setText(err);
                     return;
                 }
-                if (showMode == ShowMode.ShowModeAdd){
+                if (showMode == ShowMode.ShowModeAdd){//如果是添加主密码
                     new Thread(new PBKDFRunnable(passwd.getText().toString())).start();
-                } else {
+                }
+                else {//如果是更改主密码
                     dialog = ResUtil.getInstance(null).showProgressbar(SetMasterPasswordActivity.this);
                     new Thread(new ChangePasswordRunnable(oldPassword, passwd.getText().toString())).run();
                 }
-
             }
         });
     }
 
+    /**
+     * 验证密码合法性
+     * @return 提示
+     */
     private String validatePassword(){
-        // TODO: 16/4/5 Security validation.
         if (!passwd.getText().toString().equalsIgnoreCase(confirm.getText().toString())) {
             return getString(R.string.password_dont_match_em);
         }
         if (passwd.getText().length() < 6) {
             return getString(R.string.password_is_too_short_em);
         }
-
         return null;
     }
 
@@ -152,14 +159,15 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
         }
     }
 
-    private void initReference(){
+    private void initViews(){
         passwd = (AppCompatEditText) findViewById(R.id.password);
         confirm = (AppCompatEditText) findViewById(R.id.confirm);
         confirmImgView = (AppCompatImageView) findViewById(R.id.confirm_img);
         helpText = (TextView) findViewById(R.id.help_text);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
     }
 
-    private void initListener(){
+    private void initActions(){
         passwd.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
