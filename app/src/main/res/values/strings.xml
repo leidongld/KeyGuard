@@ -42,6 +42,7 @@
     <string name="choose_category_and_account"><![CDATA[选择账户]]></string>
     <string name="categories">目录</string>
     <string name="password_dont_match_em">密码不匹配</string>
+    <string name="password_is_not_strong">为保证安全，您的密码必须同时包含大小写字母及数字</string>
     <string name="password_is_too_short_em">您的密码太短了！</string>
     <string name="enter_main_password">请输入主密码</string>
     <string name="confirm_main_password">再次输入主密码</string>
@@ -108,4 +109,12 @@
     <string name="password_generator">密码生成器</string>
     <string name="warning_master_password">请务必牢记您的主密码，主密码丢失将导致您的数据无法恢复！</string>
     <string name="save">保存</string>
+    <string name="fingerprint">请验证您的指纹</string>
+    <string name="no_sensor_dialog_title">您的手机没有指纹功能</string>
+    <string name="no_sensor_dialog_message">很遗憾，您的手机可能没有指纹功能</string>
+    <string name="cancel_btn_dialog">取消</string>
+    <string name="no_fingerprint_enrolled_dialog_title">系统中没有注册指纹</string>
+    <string name="no_fingerprint_enrolled_dialog_message">系统中并未注册指纹，请您先前往注册</string>
+    <string name="disable_fingerprint_lock">关闭指纹锁</string>
+    <string name="enable_fingerprint_lock">开启指纹锁</string>
 </resources>

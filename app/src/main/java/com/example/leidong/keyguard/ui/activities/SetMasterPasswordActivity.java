@@ -18,6 +18,7 @@ import com.example.leidong.keyguard.events.CryptoEvent;
 import com.example.leidong.keyguard.runnable.ChangePasswordRunnable;
 import com.example.leidong.keyguard.runnable.PBKDFRunnable;
 import com.example.leidong.keyguard.utils.AppConstants;
+import com.example.leidong.keyguard.utils.MasterPasswordFormatUtil;
 import com.example.leidong.keyguard.utils.OtherUtil;
 import com.example.leidong.keyguard.utils.ResUtil;
 
@@ -96,6 +97,9 @@ public class SetMasterPasswordActivity extends AppCompatActivity {
         }
         if (passwd.getText().length() < 6) {
             return getString(R.string.password_is_too_short_em);
+        }
+        if (!MasterPasswordFormatUtil.isStrongPassword(passwd.getText().toString())){
+            return getString(R.string.password_is_not_strong);
         }
         return null;
     }

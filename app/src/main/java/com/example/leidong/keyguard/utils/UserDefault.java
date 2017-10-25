@@ -86,6 +86,21 @@ public class UserDefault extends StorageInterface{
     }
 
     /**
+     * 判断是否注册了指纹
+     * @return 结果
+     */
+    public boolean hasFingerprint(){
+        return sharedPreferences.getBoolean(kSettingsFingerprint, false);
+    }
+
+    /**
+     * 设置有指纹
+     */
+    public void setHasFingerprint(){
+        sharedPreferences.edit().putBoolean(kSettingsFingerprint, true).apply();
+    }
+
+    /**
      * 清除快速登录密码
      */
     public void clearQuickPassword() {
@@ -271,6 +286,7 @@ public class UserDefault extends StorageInterface{
      */
     private static final String kSettingsHasQuickPassword    = "kSettingsHasQuickPassword";
     private static final String kSettingsQuickPassByte       = "kSettingsQuickPassByte";
+    private static final String kSettingsFingerprint         = "kSettingsFingerprint";
     public static final String kNeedPasswordWhenLaunch      = "kNeedPasswordWhenLaunch";
     public static final long v3x3                           = 0x1033;
     public static final long v4x4                           = 0x1044;

@@ -31,6 +31,7 @@ import de.greenrobot.event.EventBus;
 public class SettingsActivity extends MaterialSettings{
     public static final int RequestCodeSetMainPassword = 0x700;
     private TextItem quickSwitcher;
+    private TextItem fingerprintSwitcher;
     private SelectorItem selectorItem;
     private AppCompatDialog dialog;
     private boolean didClickedChangeMaster;
@@ -44,6 +45,7 @@ public class SettingsActivity extends MaterialSettings{
         EventBus.getDefault().register(this);
 
         addItem(new HeaderItem(this).setTitle(getString(R.string.security)));
+        //登录时是否需要主密码
         addItem(new CheckboxItem(this, UserDefault.kNeedPasswordWhenLaunch).setTitle(getString(R.string.need_password_when_launch)).setOnCheckedChangeListener(new CheckboxItem.OnCheckedChangeListener() {
             @Override
             public void onCheckedChange(CheckboxItem cbi, boolean isChecked) {
@@ -51,10 +53,10 @@ public class SettingsActivity extends MaterialSettings{
             }
         }));
 
+        /**********************************************/
         //根据有没有快捷密码判断是否启用快捷密码模式
-        String title = UserDefault.getInstance(null).hasQuickPassword() ? getString(R.string.disable_gesture_lock) : getString(R.string.enable_gesture_lock);
-
-        quickSwitcher = new TextItem(this, "quick_pass").setTitle(title).setOnclick(new TextItem.OnClickListener() {
+        String title1 = UserDefault.getInstance(null).hasQuickPassword() ? getString(R.string.disable_gesture_lock) : getString(R.string.enable_gesture_lock);
+        quickSwitcher = new TextItem(this, "quick_pass").setTitle(title1).setOnclick(new TextItem.OnClickListener() {
             @Override
             public void onClick(TextItem textItem) {
                 //手势密码已经存在则点击会删除掉该手势密码
@@ -71,6 +73,26 @@ public class SettingsActivity extends MaterialSettings{
             }
         });
         addItem(quickSwitcher);
+
+        //根据有没有快捷密码判断是否启用快捷密码模式
+        String title2 = UserDefault.getInstance(null).hasFingerprint() ? getString(R.string.disable_fingerprint_lock) : getString(R.string.enable_fingerprint_lock);
+
+        fingerprintSwitcher = new TextItem(this, "fingerprint_pass").setTitle(title2).setOnclick(new TextItem.OnClickListener() {
+            @Override
+            public void onClick(TextItem textItem) {
+                //指纹已经存在则点击会取消指纹锁
+                if (UserDefault.getInstance(null).hasQuickPassword()) {
+                    UserDefault.getInstance(null).clearQuickPassword();
+                    quickSwitcher.updateTitle(getString(R.string.enable_gesture_lock));
+                }
+                //指纹不存在则点击会打开指纹锁
+                else {
+
+                }
+            }
+        });
+        addItem(fingerprintSwitcher);
+        /**********************************************/
 
         didClickedChangeMaster = false;
         addItem(new TextItem(this, "change_password").setTitle(getString(R.string.change_master_password)).setOnclick(new TextItem.OnClickListener() {
